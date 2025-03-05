@@ -4,10 +4,12 @@
   <BlogPost 
     v-for="post in posts" 
     :key="posts.id" 
-    v-bind="post"
+    :id="post.id"
+    v-model:blogPostTitle="post.blogPostTitle"
+    v-model:blogPostContent="post.blogPostContent"
     @delete-blog-post="processDeletion"
   ></BlogPost>
-  <!-- above: we use same name from child $emit to listen to it, call some method-->
+  <!-- use v-model rather than props (emit and handle)-->
 </template>
 
 <script setup>
