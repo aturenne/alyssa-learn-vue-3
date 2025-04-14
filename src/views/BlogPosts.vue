@@ -3,8 +3,11 @@
         <aside class="blog-post-list">
             <BlogPostList></BlogPostList>
         </aside>
-        <main class="blog-post-content">
-            <router-view></router-view>
+        <main class="blog-post-content-with-sidebar">
+            <!-- This is the default router-view -->
+            <router-view class="blog-post-content"></router-view>
+            <!-- This is the named router-view -->
+            <router-view name="sidebar"></router-view>
         </main>
     </div>
 </template>
@@ -22,8 +25,13 @@ import BlogPostList from '@/components/BlogPostList.vue'
         flex: 0 0 25%
     }
 
-    .blog-post-content {
+    .blog-post-content-with-sidebar {
+        display: flex;
         flex: 0 0 75%;
+
+        .blog-post-content {
+            flex: 1; //take up the remaining space
+        }
     }
 }
 </style>
